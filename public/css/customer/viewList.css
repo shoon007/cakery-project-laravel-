@@ -1,0 +1,23 @@
+table tbody.view-count tr td {
+    padding: 0.5rem;
+}
+
+table tbody.view-count tr td.order-code {
+    color: #ff7782;
+    text-decoration: underline;
+}
+
+table tbody.view-count tr td img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin: 0rem auto;
+}
+
+@media screen and (max-width: 768px) {
+    table thead.view-count tr th.product-image,
+    table tbody.view-count tr td.product-image {
+        display: none;
+    }
+}

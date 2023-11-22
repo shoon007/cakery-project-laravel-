@@ -1,0 +1,76 @@
+.main.customer-contact {
+    max-width: 96%;
+}
+
+.main.customer-contact .customer-image {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid #7380ec;
+}
+
+.main.customer-contact h4.name {
+    font-size: 1.2rem;
+}
+
+.main.customer-contact .customer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main.customer-contact table tbody tr td {
+    padding: 0.3rem;
+}
+
+.main.customer-contact table tbody tr td.message a {
+    color: #ff7782;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.main.customer-contact table tbody tr td.message a:visited {
+    color: #7380ec;
+}
+
+.main.customer-message .details-container {
+    margin-bottom: 3rem;
+}
+
+.main.customer-message .info-container.customer .info span {
+    font-size: 1rem;
+    color: #ff7782;
+}
+
+.main.customer-message .info-container.customer .info p {
+    margin-bottom: 0rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .main.customer-contact table thead tr th.customer-id,
+    .main.customer-contact table thead tr th.customer-name,
+    .main.customer-contact table thead tr th.customer-address,
+    .main.customer-contact table tbody tr td.customer-id,
+    .main.customer-contact table tbody tr td.customer-name,
+    .main.customer-contact table tbody tr td.customer-address {
+        display: none;
+    }
+    .main.customer-contact table {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main.customer-contact table thead tr th.customer-phone,
+    .main.customer-contact table tbody tr td.customer-phone,
+    .main.customer-contact table thead tr th.time,
+    .main.customer-contact table tbody tr td.time,
+    .main.customer-contact table thead tr th.customer-email,
+    .main.customer-contact table tbody tr td.customer-email {
+        display: none;
+    }
+    .main.customer-contact table tbody tr td {
+        padding: 0rem;
+    }
+}

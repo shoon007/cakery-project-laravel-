@@ -1,0 +1,964 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+/* Root Variables (Here I'm using root variables to make code clean & effective )*/
+
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+
+/* DARK THEME VARIABLES */
+
+.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.5);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+
+/* GENERAL SELECTOR*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.88rem;
+    background: var(--color-background);
+    overflow-x: hidden;
+    color: var(--color-dark);
+}
+
+.container {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto 23rem;
+}
+
+a {
+    color: var(--color-dark);
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 0.87rem;
+}
+
+h4 {
+    font-size: 0.8rem;
+}
+
+h5 {
+    font-size: 0.77rem;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+.profile-photo {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.info small {
+    color: var(--color-dark-variant);
+}
+
+p {
+    color: var(--color-dark-variant);
+}
+
+b {
+    color: var(--color-dark);
+}
+
+.primary {
+    color: var(--color-primary);
+}
+
+.danger {
+    color: var(--color-danger);
+}
+
+.success {
+    color: var(--color-success);
+}
+
+.warning {
+    color: var(--color-warning);
+}
+
+aside {
+    height: 100vh;
+}
+
+aside .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+}
+
+aside .logo {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+aside .logo img {
+    width: 3rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+aside .logo img:hover {
+    animation: jello-horizontal 0.9s both;
+}
+
+@keyframes jello-horizontal {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+        opacity: 1;
+    }
+}
+
+aside .close {
+    display: none;
+}
+
+aside .close i {
+    font-size: 23px;
+    color: #7380ec;
+}
+
+
+/*START OF SIDEBAR */
+
+aside .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    position: relative;
+    top: 3rem;
+}
+
+aside h3 {
+    font-weight: 500;
+}
+
+aside .sidebar a {
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+    text-decoration: none;
+    list-style: none;
+}
+
+aside .sidebar a span {
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a:last-child {
+    width: 100%;
+}
+
+aside .sidebar a.active {
+    background: var(--color-light);
+    color: var(--color-primary);
+    margin-left: 0;
+}
+
+aside .sidebar a.active:before {
+    content: "";
+    width: 6px;
+    height: 100%;
+    background: var(--color-primary);
+}
+
+aside .sidebar a.active span {
+    color: var(--color-primary);
+    margin-left: calc(1rem - 3px);
+}
+
+aside .sidebar a:hover {
+    color: var(--color-primary);
+}
+
+aside .sidebar a:hover span {
+    margin-left: 1rem;
+}
+
+aside .sidebar .message-count {
+    background: var(--color-danger);
+    color: var(--color-white);
+    padding: 2px 10px;
+    font-size: 11px;
+    border-radius: var(--border-radius-1);
+}
+
+
+/*END OF SIDEBAR*/
+
+
+/* MAIN CONTAINER*/
+
+main {
+    margin-top: 1.4rem;
+}
+
+main .date {
+    display: inline-block;
+    background: var(--color-light);
+    border-radius: var(--border-radius-1);
+    margin-top: 1rem;
+    padding: 0.5rem 1.6rem;
+}
+
+main .date input[type="date"] {
+    background: transparent;
+    color: var(--color-dark);
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+::-webkit-calendar-picker-indicator {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+}
+
+main .insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+}
+
+main .insights .sales,
+main .insights .expenses,
+main .insights .income {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    cursor: pointer;
+    height: 150px;
+}
+
+main .insights .sales,
+main .insights .expenses,
+main .insights .income:hover {
+    box-shadow: none;
+}
+
+main .insights .sales span i,
+main .insights .expenses span i,
+main .insights .income span i {
+    background: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+
+main .insights .expenses span i {
+    background: var(--color-danger);
+}
+
+main .insights .income span i {
+    background: var(--color-success);
+}
+
+main .insights .middle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main .insights h3 {
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
+
+main .insights svg {
+    width: 7rem;
+    height: 7rem;
+}
+
+main .insights svg circle {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 110;
+    stroke-dashoffset: 92;
+}
+
+main .insights .sales svg circle {
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+
+main .insights .expenses svg circle {
+    stroke-dashoffset: 20;
+    stroke-dasharray: 80;
+}
+
+main .insights .income svg circle {
+    stroke-dashoffset: 35;
+    stroke-dasharray: 110;
+}
+
+main .insights small {
+    margin-top: 1.3rem;
+    display: block;
+}
+
+
+/* RECENT ORDER TABLE */
+
+main .recent-orders {
+    margin-top: 2rem;
+}
+
+main .recent-orders h2 {
+    margin-bottom: 0.8rem;
+}
+
+main .recent-orders .no-order {
+    text-align: center;
+    background-color: var(--color-light);
+    padding: 1rem;
+    border-radius: 0.6rem;
+    margin-top: 2rem;
+}
+
+main .recent-orders table {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+main .recent-orders table:hover {
+    box-shadow: none;
+}
+
+main table thead {
+    height: 2.8rem;
+}
+
+main table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+    transition: all 300ms ease;
+}
+
+main table tbody tr {
+    padding: 0.8rem;
+    transition: all 300ms ease;
+}
+
+main table tbody tr:hover {
+    background-color: var(--color-light);
+}
+
+main table tbody tr:last-child td {
+    border: none;
+}
+
+main .recent-orders a.danger {
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: var(--color-danger);
+    text-decoration: underline;
+}
+
+main .recent-orders nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.my-custom-select {
+    background-color: var(--color-background);
+    color: var(--color-dark);
+    border: none;
+    border-radius: 20px;
+    padding: 6px 40px;
+    margin: 0.5rem auto;
+    cursor: pointer;
+}
+
+.statusChange {
+    width: 200px;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    color: #7380ec;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    background-color: #7380ec;
+    border-color: #7380ec;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #7380ec;
+    border-color: #7380ec;
+}
+
+.text-muted {
+    color: #7380ec !important;
+}
+
+
+/* END OF MAIN CONTAINER */
+
+
+/* RIGHT SIDE OF THE DASHBOARD */
+
+
+/* Dark & light modes */
+
+.ui-switch {
+    /* switch */
+    --switch-bg: rgb(135, 150, 165);
+    --switch-width: 48px;
+    --switch-height: 20px;
+    /* circle */
+    --circle-diameter: 32px;
+    --circle-bg: rgb(0, 56, 146);
+    --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
+}
+
+.ui-switch input {
+    display: none;
+}
+
+.slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: var(--switch-width);
+    height: var(--switch-height);
+    background: var(--switch-bg);
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+}
+
+.slider .circle {
+    top: calc(var(--circle-inset) * -1);
+    left: 0;
+    width: var(--circle-diameter);
+    height: var(--circle-diameter);
+    position: absolute;
+    background: var(--circle-bg);
+    border-radius: inherit;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTkuMzA1IDEuNjY3VjMuNzVoMS4zODlWMS42NjdoLTEuMzl6bS00LjcwNyAxLjk1bC0uOTgyLjk4Mkw1LjA5IDYuMDcybC45ODItLjk4Mi0xLjQ3My0xLjQ3M3ptMTAuODAyIDBMMTMuOTI3IDUuMDlsLjk4Mi45ODIgMS40NzMtMS40NzMtLjk4Mi0uOTgyek0xMCA1LjEzOWE0Ljg3MiA0Ljg3MiAwIDAwLTQuODYyIDQuODZBNC44NzIgNC44NzIgMCAwMDEwIDE0Ljg2MiA0Ljg3MiA0Ljg3MiAwIDAwMTQuODYgMTAgNC44NzIgNC44NzIgMCAwMDEwIDUuMTM5em0wIDEuMzg5QTMuNDYyIDMuNDYyIDAgMDExMy40NzEgMTBhMy40NjIgMy40NjIgMCAwMS0zLjQ3MyAzLjQ3MkEzLjQ2MiAzLjQ2MiAwIDAxNi41MjcgMTAgMy40NjIgMy40NjIgMCAwMTEwIDYuNTI4ek0xLjY2NSA5LjMwNXYxLjM5aDIuMDgzdi0xLjM5SDEuNjY2em0xNC41ODMgMHYxLjM5aDIuMDg0di0xLjM5aC0yLjA4NHpNNS4wOSAxMy45MjhMMy42MTYgMTUuNGwuOTgyLjk4MiAxLjQ3My0xLjQ3My0uOTgyLS45ODJ6bTkuODIgMGwtLjk4Mi45ODIgMS40NzMgMS40NzMuOTgyLS45ODItMS40NzMtMS40NzN6TTkuMzA1IDE2LjI1djIuMDgzaDEuMzg5VjE2LjI1aC0xLjM5eiIgLz4KPC9zdmc+");
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -o-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.slider .circle::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: inherit;
+    -webkit-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+    opacity: 0;
+}
+
+
+/* actions */
+
+.ui-switch input:checked+.slider .circle {
+    left: calc(100% - var(--circle-diameter));
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTQuMiAyLjVsLS43IDEuOC0xLjguNyAxLjguNy43IDEuOC42LTEuOEw2LjcgNWwtMS45LS43LS42LTEuOHptMTUgOC4zYTYuNyA2LjcgMCAxMS02LjYtNi42IDUuOCA1LjggMCAwMDYuNiA2LjZ6IiAvPgo8L3N2Zz4=");
+}
+
+.ui-switch input:active+.slider .circle::before {
+    -webkit-transition: 0s;
+    -o-transition: 0s;
+    transition: 0s;
+    opacity: 1;
+    width: 0;
+    height: 0;
+}
+
+
+/* End of dark & light modes toggle */
+
+.right {
+    margin-top: 1.4rem;
+}
+
+.right .top {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.right .top button {
+    display: none;
+    color: var(--color-primary);
+}
+
+.right .theme-toggler {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right .top .profile {
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+}
+
+.right .top .profile .info p {
+    margin-bottom: 5px;
+}
+
+.right .recent-updates {
+    margin-top: 1rem;
+}
+
+.right .recent-updates h2 {
+    margin-bottom: 0.8rem;
+}
+
+.right .recent-updates .updates {
+    background: var(--color-white);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.right .recent-updates .updates .deleteBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right .recent-updates .updates:hover {
+    box-shadow: none;
+}
+
+
+/* recent update */
+
+.right .recent-updates {
+    margin-top: 1rem;
+}
+
+.right .recent-updates h2 {
+    margin-bottom: 0.8rem;
+}
+
+.right .recent-updates .updates {
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    width: 322px;
+    height: 195px;
+}
+
+.right .recent-updates .updates:hover {
+    box-shadow: none;
+}
+
+.right .recent-updates .updates .update {
+    display: grid;
+    grid-template-columns: 3rem auto;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    margin-left: 2rem;
+}
+
+.right .recent-updates .updates .update .profile-photo {
+    height: 2.6rem;
+    width: 2.6rem;
+    border-radius: 50%;
+}
+
+
+/* customer order */
+
+.right .sales-analytics {
+    margin-bottom: 0.8rem;
+    margin-top: 0.6rem;
+}
+
+.right .sales-analytics h2 {
+    margin-bottom: 0.8rem;
+}
+
+.right .sales-analytics .item {
+    background: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem var(--card-padding);
+    border-radius: var(--border-radius-3);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.right .sales-analytics .item:hover {
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.right .sales-analytics .item .right {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin: 0;
+    width: 100%;
+}
+
+.right .sales-analytics .item .icon {
+    padding: 10px 14px;
+    color: white;
+    border-radius: 50%;
+    background: var(--color-primary);
+    display: flex;
+}
+
+.right .sales-analytics .add-product {
+    background: transparent;
+    border: 2px dashed var(--color-primary);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right .sales-analytics .add-category {
+    background: transparent;
+    border: 2px dashed var(--color-danger);
+    color: var(--color-danger);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.right .sales-analytics .add-product h3,
+.right .sales-analytics .add-category h3 {
+    margin-bottom: 0rem;
+}
+
+.right .sales-analytics .add-product:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.right .sales-analytics .add-category:hover {
+    background: var(--color-danger);
+    color: white;
+}
+
+.right .sales-analytics .add-product div {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.right .sales-analytics .add-product div h3 {
+    font-weight: 600px;
+}
+
+
+/* END OF RIGHT SIDE OF DASHBOARD */
+
+
+/* MEDIA QUERIES FOR TABLET*/
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 94%;
+        grid-template-columns: 7rem auto 23rem;
+    }
+    aside .logo h2 {
+        display: none;
+    }
+    aside .sidebar h3 {
+        display: none;
+    }
+    aside .sidebar a {
+        width: 5.6rem;
+    }
+    main .insights {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    main .recent-orders {
+        width: 94%;
+        position: absolute;
+        left: 49%;
+        transform: translateX(-50%);
+        margin: 2rem 0 0 9rem;
+    }
+    main .recent-orders table {
+        width: 83vw;
+    }
+    main table thead tr th:first-child {
+        display: none;
+    }
+    main table tbody tr td:first-child {
+        display: none;
+    }
+    .right {
+        margin-top: 1.4rem;
+    }
+    .right .top {
+        display: flex;
+        justify-content: end;
+        gap: 2rem;
+    }
+}
+
+
+/* MEDIA QUERIES FOR MOBILE */
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+    main .recent-orders {
+        width: 100%;
+    }
+    aside {
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        animation: showMenu 400ms ease forwards;
+        display: none;
+    }
+    @keyframes showMenu {
+        to {
+            left: 0;
+        }
+    }
+    aside .logo {
+        margin-left: 1rem;
+    }
+    aside .logo h2 {
+        display: inline;
+    }
+    aside .sidebar h3 {
+        display: inline;
+    }
+    aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+    }
+    aside .close {
+        display: inline-block;
+        cursor: pointer;
+    }
+    main {
+        margin-top: 8rem;
+        padding: 0 1rem;
+    }
+    main .recent-orders {
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+    }
+    main .recent-orders table {
+        width: 100%;
+        margin: 0;
+    }
+    main table thead tr th.user {
+        display: none;
+    }
+    main table tbody tr td.user {
+        display: none;
+    }
+    .right {
+        width: 94%;
+        margin: 0 auto 4rem;
+    }
+    .right .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+    .right .top .theme-toggler {
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+    .right .profile .info {
+        display: none;
+    }
+    .right .top button {
+        display: inline-block;
+        background-color: transparent;
+        cursor: pointer;
+        position: absolute;
+        left: 1rem;
+    }
+    .right .top button span {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    main table thead tr th.amount {
+        display: none;
+    }
+    main table tbody tr td.amount {
+        display: none;
+    }
+    aside {
+        position: fixed;
+        height: 200vh;
+        top: 0;
+        left: 0;
+        bottom: 0;
+    }
+}

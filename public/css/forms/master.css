@@ -1,0 +1,282 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* General selector */
+
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    user-select: none;
+}
+
+body {
+    background-color: rgb(220, 227, 249);
+}
+
+.container {
+    margin: auto;
+    max-width: 450px;
+    background-color: rgb(195, 206, 228);
+    padding: 1rem;
+    margin-top: 3rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    position: relative;
+    animation: show 300ms ease;
+    font-family: "Poppins", sans-serif;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.container h1 {
+    text-align: center;
+    color: transparent;
+    -webkit-text-stroke: 1px #000;
+    letter-spacing: 3px;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.container form input {
+    padding: 9px 26px;
+    border-radius: 20px;
+    margin: 10px auto;
+    border: none;
+    user-select: none;
+    outline: none;
+    resize: none;
+    color: #000;
+}
+
+.container form select {
+    padding: 9px 2.7rem;
+    border-radius: 20px;
+    margin: 10px auto;
+    border: none;
+    user-select: none;
+    outline: none;
+}
+
+
+/* input only for number otherwise shake effect */
+
+.input:invalid {
+    animation: justshake 0.3s forwards;
+    color: red;
+}
+
+@keyframes justshake {
+    25% {
+        transform: translateX(5px);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX-(5px);
+    }
+}
+
+.img1,
+.img2,
+.img3 {
+    position: absolute;
+}
+
+.img1 {
+    width: 150px;
+    bottom: 1rem;
+    right: -6.7rem;
+    z-index: -1;
+    cursor: pointer;
+    animation: jello-horizontal 0.9s both;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+.img2 {
+    bottom: -1rem;
+    right: -2.5rem;
+    width: 110px;
+    opacity: 0;
+    animation: jello-horizontal 0.9s both;
+}
+
+.img3 {
+    width: 130px;
+    position: absolute;
+    bottom: 0rem;
+    left: -4.4rem;
+    transform: rotate(0deg);
+    z-index: -1;
+    animation: slay 0.8s ease forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+@keyframes jello-horizontal {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+        opacity: 1;
+    }
+}
+
+@keyframes slay {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-40deg);
+        opacity: 1;
+    }
+}
+
+small {
+    font-size: 13px;
+    margin-top: 0.5rem;
+}
+
+small span {
+    color: rgb(137, 23, 243);
+    transition: all 300ms ease;
+    cursor: pointer;
+    margin-left: 0.3rem;
+}
+
+small span:hover {
+    text-decoration: underline;
+}
+
+small span a {
+    text-decoration: none;
+    color: rgb(137, 23, 243);
+}
+
+
+/* button */
+
+.Btn {
+    position: relative;
+    width: 140px;
+    height: 50px;
+    border-radius: 45px;
+    border: none;
+    background-color: rgb(151, 95, 255);
+    color: white;
+    box-shadow: 0px 10px 10px rgb(210, 187, 253) inset, 0px 5px 10px rgba(5, 5, 5, 0.212), 0px -10px 10px rgb(124, 54, 255) inset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.Btn::before {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.678);
+    content: "";
+    filter: blur(1px);
+    top: 7px;
+    border-radius: 50%;
+}
+
+.Btn::after {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.137);
+    content: "";
+    filter: blur(1px);
+    bottom: 7px;
+    border-radius: 50%;
+}
+
+.Btn:hover {
+    animation: jello-horizontal 0.9s both;
+}
+
+.Btn:active {
+    box-shadow: none;
+}
+
+
+/* tablet screen */
+
+@media screen and (max-width: 768px) {
+    .img1 {
+        width: 90px;
+        right: -5rem;
+    }
+    .img2 {
+        width: 70px;
+    }
+    .img3 {
+        width: 90px;
+        bottom: -0.4rem;
+        left: -3.6rem;
+    }
+}
+
+
+/* phone screen */
+
+@media screen and (max-width: 600px) {
+    .img1,
+    .img2,
+    .img3 {
+        display: none;
+    }
+    .container {
+        width: 80%;
+        margin: auto;
+        margin-top: 2rem;
+    }
+    .container form input {
+        width: 100%;
+    }
+    .container form select {
+        width: 100%;
+    }
+    .Btn {
+        width: 100px;
+        height: 45px;
+    }
+}

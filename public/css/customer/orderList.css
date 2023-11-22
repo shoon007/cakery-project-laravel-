@@ -1,0 +1,53 @@
+.order-info {
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    width: 30%;
+    cursor: pointer;
+    transition: all 300ms ease;
+    margin-bottom: 1rem;
+}
+
+.order-info:hover {
+    box-shadow: none;
+}
+
+.order-list table tbody tr td {
+    padding: 0.5rem;
+}
+
+.order-list table tbody tr td.select select {
+    cursor: pointer;
+}
+
+.order-list table tbody tr td.order-product img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin: 0rem auto;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1028px) {
+    .order-info {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .order-list table thead tr th.order-product,
+    .order-list table thead tr th.order-date,
+    .order-list table thead tr th.order-amount,
+    .order-list table tbody tr td.order-product,
+    .order-list table tbody tr td.order-date,
+    .order-list table tbody tr td.order-amount {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .order-info {
+        width: 80%;
+    }
+}

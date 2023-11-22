@@ -1,0 +1,311 @@
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+    --box-shadow: 0 2rem 3rem var(--color-light);
+    --color: #00a97f;
+}
+
+
+/* DARK THEME VARIABLES */
+
+.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.5);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+a {
+    text-decoration: none;
+}
+
+.text-danger {
+    color: var(--color-danger);
+    margin-bottom: 3px;
+}
+
+.main {
+    padding-top: 0rem;
+    margin-top: 1rem;
+}
+
+.main .back-btn {
+    display: flex;
+    height: 3em;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: var(--color-info-light);
+    margin-bottom: 2rem;
+}
+
+.main .back-btn>svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    transition: all 0.4s ease-in;
+}
+
+.main .back-btn:hover>svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+}
+
+.main .back-btn:hover {
+    box-shadow: var(--box-shadow);
+    transform: translateY(-2px);
+}
+
+.edit-container {
+    margin: auto;
+    width: 80%;
+}
+
+.edit-container form {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 5rem;
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.edit-container form:hover {
+    box-shadow: none;
+}
+
+.profile-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.profile-div img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+#custom-button {
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px dashed #00bfa6;
+    padding: 10px;
+    color: var(--color-white);
+    background-color: #39bda7;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+#custom-button span:last-child {
+    display: none;
+}
+
+#custom-button:hover {
+    transition: 0.4s;
+    border: 2px dashed #00bfa6;
+    background-color: transparent;
+    color: #00bfa6;
+}
+
+#custom-button:active {
+    background-color: #87dbd0;
+    opacity: 0.6;
+}
+
+#custom-text {
+    margin-left: 10px;
+    font-family: sans-serif;
+    color: var(--color-dark);
+}
+
+.edit-container form .inputs {
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.edit-container form .inputs .move {
+    margin-left: 1.8rem;
+}
+
+form .inputs label {
+    margin: 0rem 1rem;
+}
+
+form .inputs label input {
+    padding: 7px 20px;
+    border-radius: 20px;
+    background-color: var(--color-background);
+    color: var(--color-dark);
+    margin: 0.5rem auto;
+}
+
+form .inputs label textarea {
+    border-radius: 20px;
+    background-color: var(--color-background);
+    color: var(--color-dark);
+    margin: 0.5rem auto;
+    resize: none;
+    padding: 6px;
+}
+
+.edit-container form .inputs .role:hover {
+    cursor: not-allowed;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid var(--color-success);
+    border-radius: 4px;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    color: var(--color-dark);
+    z-index: 1;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    margin: auto;
+    font-size: 16px;
+}
+
+.button:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: #39bda7;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button:hover {
+    color: #ffffff;
+    border: 1px solid #39bda7;
+}
+
+.button:hover:before {
+    top: -35%;
+    background-color: #39bda7;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button:hover:after {
+    top: -45%;
+    background-color: #39bda7;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button:active {
+    transform: scale(0.9);
+}
+
+
+/* media query for tablets */
+
+@media screen and (max-width: 1200px) {
+    .edit-form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .edit-container form .inputs .move {
+        margin-left: 1.5rem;
+    }
+}
+
+
+/* media query for mobile */
+
+@media screen and (max-width: 768px) {
+    .main {
+        margin-top: 7rem;
+    }
+    .edit-container form {
+        padding: 2rem;
+    }
+    #custom-button {
+        padding: 5px;
+    }
+    .edit-container form .inputs {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 0rem auto;
+    }
+    form .inputs label input {
+        padding: 7px 15px;
+        width: 100%;
+    }
+    form .inputs label textarea {
+        width: 100%;
+        margin: 0.6rem 0rem;
+    }
+    .edit-container form .inputs .move {
+        margin-left: 0rem;
+    }
+    form .inputs label {
+        margin: 0rem;
+    }
+    .button {
+        padding: 0.4rem 1rem;
+        margin-top: 1rem;
+    }
+    .main .back-btn {
+        width: 80px;
+    }
+}

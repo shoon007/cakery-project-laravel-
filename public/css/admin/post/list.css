@@ -1,0 +1,30 @@
+.product-img {
+    width: 100%;
+    max-width: 200px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    margin: 0rem auto;
+}
+
+.no-admin {
+    padding: 1rem;
+    border-radius: 0.6rem;
+    text-align: center;
+    background-color: var(--color-light);
+}
+
+.form {
+    cursor: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .product-img {
+        width: 100%;
+    }
+    table thead tr th.view-count,
+    table tbody tr td.view-count {
+        display: none;
+    }
+}

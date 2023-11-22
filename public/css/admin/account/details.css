@@ -1,0 +1,177 @@
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+
+/* DARK THEME VARIABLES */
+
+.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.5);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.text-success {
+    color: var(--color-success);
+}
+
+.main {
+    margin-top: 1rem;
+}
+
+.main .details-container {
+    margin: auto;
+    width: 80%;
+    height: 100%;
+    padding-top: 2rem;
+}
+
+.main .details-container .form {
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 70%;
+    padding: 2rem 1rem;
+    transition: all 300ms ease;
+}
+
+.main .details-container .form:hover {
+    box-shadow: none;
+}
+
+.main .details-container .form .account-details {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.account-details .profile {
+    margin-right: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-details .profile img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.main .details-container .form .btn {
+    width: 6.5em;
+    height: 2.3em;
+    margin: 0.5em;
+    background: var(--color-primary);
+    color: var(--color-info-light);
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.main .details-container .form button:hover {
+    color: var(--color-primary);
+}
+
+.main .details-container .form button:after {
+    content: "";
+    background: var(--color-info-light);
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+}
+
+.main .details-container .form button:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.main .details-container .form button:active {
+    transform: scale(0.8);
+}
+
+
+/* media query for tablets*/
+
+@media screen and (max-width: 1200px) {
+    .main .details-container .form .account-details {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .account-details .profile {
+        margin-right: 0rem;
+        margin-bottom: 1.5rem;
+    }
+    .main .details-container .form .btn {
+        width: 4.5em;
+        height: 2.3em;
+    }
+}
+
+
+/* media query for mobile */
+
+@media screen and (max-width: 768px) {
+    .main {
+        margin-top: 7rem;
+    }
+    .main .details-container {
+        width: 100%;
+    }
+    .main .details-container .form {
+        margin: auto;
+        width: 85%;
+    }
+    .main .details-container .form .btn {
+        width: 4.1em;
+        height: 2.1em;
+        font-size: 15px;
+    }
+    .account-details .profile img {
+        width: 80px;
+        height: 80px;
+    }
+}
